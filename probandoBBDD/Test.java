@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 
 public class Test {
 	conexion = EjemploSingleton.getConnection();
-	IF(conexion!=null){
+	if(conexion!=null){
 		System.out.println("COnectado! :)");
 		stmt = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		stmt.executeUpdate(sql);
@@ -14,15 +14,22 @@ public class Test {
 			int id = rs.getInt(1);
 			String nombre = rs.getString(2);
 			System.out.println("Nombre " + nombre + ", id" + id);
+			
 			/*while (rs.next()) {
 				int id = rs.getInt(1);
 				String nombre = rs.getString(2);
 				System.out.println("Nombre " + nombre + ", id" + id);
 			}*/
-			
+			rs.relative(-5);
 			id = rs.getInt(1);
 			nombre = rs.getString(2);
 			System.out.println("Nombre " + nombre + ", id" + id);
+			rs.afterLast();
+			while(rs.previous()) {
+				id = rs.getInt(1);
+				nombre = rs.getString(2);
+				System.out.println("Nombre " + nombre + ", id" + id);
+			}
 	}
 	
 
