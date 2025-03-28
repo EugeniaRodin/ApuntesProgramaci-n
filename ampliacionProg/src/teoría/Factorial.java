@@ -1,12 +1,21 @@
-package ejercicio1;
+package teoría;
 
 public class Factorial {
-	/*
-	 * 1. Ejecuta el programa probando los factoriales de 5,6,7,8,9,10.
-	 */
+	
+	//PILA
+	public static int factorial(int n) {
+		if (n == 0)
+			return 1;
+		
+		//Pila menos eficiente porque tiene que estar guardando el valor de n cada vez
+		return n * factorial(n - 1);
+	}
+	
+	//RECURSION DE COLA
 	public static int factorialCola(int n, int acumulador) {
 		if (n == 0)
 			return acumulador;
+		// mas eficiente porque llama directamente al metodo
 		return factorialCola(n - 1, n * acumulador);
 	}
 
