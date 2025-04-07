@@ -9,6 +9,7 @@ import java.lang.Iterable;
 import java.time.chrono.IsoChronology;
 
 public class RosterTest {
+	//LAS EXPRESIONES LAMBDA SOLO SIRVEN PARA INTERFACES CON UN ÚNICO METODO ABSTRACTO -> apps funcionales.
 	interface CheckPerson {
 		boolean test(Person p);
 	}
@@ -53,7 +54,6 @@ public class RosterTest {
 	}
 
 	// Approach 7: Use Lambda Expressions Throughout Your Application
-	
 	public static void processPersons(List<Person> roster, Predicate<Person> tester, Consumer<Person> block) {
 		for (Person p : roster) {
 			if (tester.test(p)) {
@@ -63,7 +63,6 @@ public class RosterTest {
 	}
 
 	// Approach 7, second example
-	
 	public static void processPersonsWithFunction(List<Person> roster, Predicate<Person> tester,
 			Function<Person, String> mapper, Consumer<String> block) {
 		for (Person p : roster) {
@@ -75,7 +74,7 @@ public class RosterTest {
 	}
 
 	// Approach 8: Use Generics More Extensively
-	// Iterable -> iterador. Predicado -> filtrar. Function -> transformador. Consumer -> acción. 
+	// Iterable -> iterador | Predicado -> filtrar | Function -> transformador | Consumer -> acción. 
 	public static <X, Y> void processElements(Iterable<X> source, Predicate<X> tester, Function<X, Y> mapper,
 			Consumer<Y> block) {
 		for (X p : source) {
